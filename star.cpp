@@ -89,4 +89,62 @@ std::vector<star> star::getStarVector() {
     return readStarFile();
 }
 
+// Returns the distance between a and b based on the distance formula for two points
+float star::calculateDistance(const star& a, const star& b) {
+    float dx = std::stof(a.getXCord()) - std::stof(b.getXCord());    // ax-bx
+    float dy = std::stof(a.getYCord()) - std::stof(b.getYCord());    // ay-by
+    return std::sqrt(dx * dx + dy * dy);                                  // sqrt of [(ax-bx)^2 + (ay-by)^2]
+}
+
+// Function to create a map of star names to their adjacent stars (TAKES TOO LONG)
+std::map<std::string, std::vector<std::pair<std::string, std::string>>> star::createAdjacencyList(const std::vector<star>& stars, float threshold) {
+    std::map<std::string, std::vector<std::pair<std::string, std::string>>> starsList;
+
+    for (const auto& s1 : stars) {
+        for (const auto& s2 : stars) {
+            if (s1.getID() != s2.getID()) {
+                float distance = calculateDistance(s1, s2);
+                if (distance <= threshold) {
+                    // Add s2 as adjacent to s1
+                    starsList[s1.getID()].push_back({s2.getID(), std::to_string(distance)});
+                    // Add s1 as adjacent to s2 since undirected graph
+                    starsList[s2.getID()].push_back({s1.getID(), std::to_string(distance)});
+                }
+            }
+        }
+    }
+
+    return starsList;
+}
+
+void star::Dijkstras(std::vector<star>& stars) {
+    int numVertices = stars.size();
+    star source = stars[0];
+
+    // Initialize sets and arrays (Mod 8b slide 18)
+    std::set<int> S;                            // Set S: vertices for which we have computed the shortest distance
+    S.insert(0);                             // source always sol id=0;
+    std::set<int> V_S;                          // Set V-S: ids of the vertices we still need to process
+    for (int i = 1; i < numVertices; ++i) {     // Start at 1 for rest
+        V_S.insert(i);
+    }
+
+    std::vector<int> d(numVertices, INT_MAX);   // Shortest distance from source to vertex
+    std::vector<int> p(numVertices, -1);        // Predecessor of vertex in the path from source to vertex
+
+    d[std::stoi(source.getID())] = 0;               // Set distance from source to itself as 0
+
+    while (!V_S.empty()) {
+
+
+
+
+
+    }
+
+
+
+
+}
+
 
