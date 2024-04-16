@@ -5,16 +5,12 @@ int main(){
     std::vector<star> stars = s.getStarVector();
     std::cout << "Number of stars: " << stars.size() << std::endl;
 
-    // Test getter functions
-    for(int i = 0; i < stars.size(); i++){
-        if(!stars[i].getCommonName().empty()){
-            std::cout << stars[i].getID()<< " " << stars[i].getCommonName() << " is "<< stars[i].getDist() << " parsecs from earth!" << std::endl;
+    // Test Shell sort (Prints named stars in order by distance)
+    std::vector<star> sortedStars = s.shellSort(stars,"temp");
+    for(int i = 0; i < sortedStars.size(); i++){
+        if(!sortedStars[i].getCommonName().empty()){
+            std::cout << sortedStars[i].getCommonName() << " is "<< sortedStars[i].getDist() << " parsecs from earth!" << std::endl;
         }
-
     }
-
-
-
-
     return 0;
 }

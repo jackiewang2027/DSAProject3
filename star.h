@@ -4,8 +4,7 @@
 #include <string>
 #include <map>
 #include <vector>
-#include <set>
-#include <cmath>
+#include <algorithm>
 #ifndef PROJECT3_STAR_H
 #define PROJECT3_STAR_H
 class star{
@@ -29,6 +28,8 @@ public:
 
     std::vector<star> getStarVector();
 
+    std::vector<star> shellSort(const std::vector<star>& stars, std::string atribute);
+
     //Getter functions
     std::string getCommonName() const {
         return asc;  // WARNING commonName saves under asc
@@ -39,15 +40,5 @@ public:
     std::string getID() const {
         return id;
     }
-    std::string getXCord() const {
-        return xCord;
-    }
-    std::string getYCord() const {
-        return yCord;
-    }
-
-    float calculateDistance(const star& a, const star& b);
-    std::map<std::string, std::vector<std::pair<std::string, std::string>>> createAdjacencyList(const std::vector<star>& stars, float threshold);
-    void Dijkstras(std::vector<star> &stars);
 };
 #endif //PROJECT3_STAR_H
