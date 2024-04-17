@@ -1,0 +1,24 @@
+"C:\Program Files\JetBrains\CLion 2023.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.3.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\czhan\Desktop\DSAProject3 -B C:\Users\czhan\Desktop\DSAProject3\cmake-build-debug
+-- The C compiler identification is GNU 13.1.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/mingw64/bin/gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of void*
+-- Check size of void* - done
+-- Found OpenGL: opengl32   
+-- Looking for dinput.h
+-- Looking for dinput.h - found
+-- Found OpenAL: C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-src/extlibs/libs-mingw/x64/libopenal32.a  
+-- Found VORBIS: C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisenc.a;C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbisfile.a;C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-src/extlibs/libs-mingw/x64/libvorbis.a;C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-src/extlibs/libs-mingw/x64/libogg.a  
+-- Found FLAC: C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-src/extlibs/libs-mingw/x64/libFLAC.a  
+-- Configuring done (12.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug
