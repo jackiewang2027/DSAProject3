@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <algorithm>
 #ifndef PROJECT3_STAR_H
 #define PROJECT3_STAR_H
 class star{
@@ -14,6 +15,7 @@ class star{
     compPrimID, baseID, lum, var, varMin, varMax;
 
     std::vector<star> readStarFile();
+    std::map<std::string, std::vector<std::pair<std::string, std::string>>> starsList;
 
 public:
     std::vector<star> stars;
@@ -26,5 +28,31 @@ public:
 
     std::vector<star> getStarVector();
 
+    std::vector<star> shellSort(const std::vector<star>& stars, std::string atribute);
+
+    //Getter function for attributes
+    std::string getAttribute(std::string attribute){
+        if(attribute == "commonName")
+            return asc;  // WARNING commonName saves under asc
+        if(attribute == "id")
+            return id;
+        if(attribute == "dist")
+            return dist;
+        if(attribute == "radVelocity")
+            return radVelocity;
+        if(attribute == "visMag")
+            return visMag;
+        if(attribute == "colorIndex"){
+            if(!colorIndex.empty()){
+                return colorIndex;
+            }else{
+                return "0";
+            }
+        }
+        if(attribute == "lum")
+            return lum;
+
+        return "0";
+    }
 };
 #endif //PROJECT3_STAR_H
