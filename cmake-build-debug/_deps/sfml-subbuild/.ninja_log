@@ -1,0 +1,21 @@
+# ninja log v5
+0	43	7350852256194293	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	27b6df1c6e33926b
+0	43	7350852256194293	C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	27b6df1c6e33926b
+43	7545	7350852331216180	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	f2fa0d0b26feec76
+43	7545	7350852331216180	C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	f2fa0d0b26feec76
+7546	8932	0	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	3e436585d678df4f
+7546	8932	0	C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	3e436585d678df4f
+8933	8973	7350852345504461	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	1952f03309d023a3
+8933	8973	7350852345504461	C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	1952f03309d023a3
+8973	9010	7350852345864472	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	66627cd05d58ae6f
+8973	9010	7350852345864472	C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	66627cd05d58ae6f
+9010	9048	7350852346244510	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	e2cd41cdc1a382cc
+9010	9048	7350852346244510	C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	e2cd41cdc1a382cc
+9048	9087	7350852346634474	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	24b128c1abc3ae4c
+9048	9087	7350852346634474	C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	24b128c1abc3ae4c
+9087	9130	7350852347054507	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	9502f75c75039240
+9087	9130	7350852347054507	C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	9502f75c75039240
+9130	9182	7350852347594464	CMakeFiles/sfml-populate-complete	324a0114d29ac19e
+9130	9182	7350852347594464	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	324a0114d29ac19e
+9130	9182	7350852347594464	C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete	324a0114d29ac19e
+9130	9182	7350852347594464	C:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	324a0114d29ac19e
