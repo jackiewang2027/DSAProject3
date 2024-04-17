@@ -30,15 +30,29 @@ public:
 
     std::vector<star> shellSort(const std::vector<star>& stars, std::string atribute);
 
-    //Getter functions
-    std::string getCommonName() const {
-        return asc;  // WARNING commonName saves under asc
-    }
-    std::string getDist() const {
-        return dist;
-    }
-    std::string getID() const {
-        return id;
+    //Getter function for attributes
+    std::string getAttribute(std::string attribute){
+        if(attribute == "commonName")
+            return asc;  // WARNING commonName saves under asc
+        if(attribute == "id")
+            return id;
+        if(attribute == "dist")
+            return dist;
+        if(attribute == "radVelocity")
+            return radVelocity;
+        if(attribute == "visMag")
+            return visMag;
+        if(attribute == "colorIndex"){
+            if(!colorIndex.empty()){
+                return colorIndex;
+            }else{
+                return "0";
+            }
+        }
+        if(attribute == "lum")
+            return lum;
+
+        return "0";
     }
 };
 #endif //PROJECT3_STAR_H

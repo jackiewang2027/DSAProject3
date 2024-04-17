@@ -89,14 +89,14 @@ std::vector<star> star::getStarVector() {
     return readStarFile();
 }
 
-std::vector<star> star::shellSort(const std::vector<star>& stars, std::string atribute) {
+std::vector<star> star::shellSort(const std::vector<star>& stars, std::string attribute) {
     std::vector<star> sortedStars = stars;
     int gap = sortedStars.size() / 2;
     while (gap > 0) {
         for (int i = gap; i < sortedStars.size(); i++) {
             star tempStar = sortedStars[i];
             int j = i;
-            while (j >= gap && std::stod(sortedStars[j - gap].dist) > std::stod(tempStar.dist)) {
+            while (j >= gap && std::stod(sortedStars[j - gap].getAttribute(attribute)) > std::stod(tempStar.getAttribute(attribute))) {
                 sortedStars[j] = sortedStars[j - gap];
                 j -= gap;
             }
