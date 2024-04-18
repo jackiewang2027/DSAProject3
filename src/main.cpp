@@ -8,20 +8,39 @@ int main() {
 
     // Load a font
     sf::Font font;
-    if (!font.loadFromFile("Magic Retro.ttf")) {
+    sf::Font secondaryFont;
+    if (!font.loadFromFile("Carrots.otf")) {
+        return -1; // Exit if the font file is not loaded successfully
+    }
+    if (!secondaryFont.loadFromFile("Stars.ttf")) {
         return -1; // Exit if the font file is not loaded successfully
     }
 
     // Set up the welcome text
-    sf::Text text;
-    text.setFont(font);
-    text.setString("Welcome to the Star Jump Visualizer");
-    text.setCharacterSize(36); // in pixels
-    text.setFillColor(sf::Color::Black);
-    text.setStyle(sf::Text::Bold);
-    sf::FloatRect textRect = text.getLocalBounds();
-    text.setOrigin(textRect.width / 2, textRect.height / 2);
-    text.setPosition(400, 300); // Center the text in the window
+    sf::Text starjump;
+
+    sf::Text welcometothe;
+    welcometothe.setFont(secondaryFont);
+    welcometothe.setString("Welcome To The");
+    welcometothe.setCharacterSize(42);
+    welcometothe.setFillColor(sf::Color::White);
+    welcometothe.setStyle(sf::Text::Bold);
+    sf::FloatRect textRect2 = welcometothe.getLocalBounds();
+    welcometothe.setOrigin(textRect2.width / 2, textRect2.height / 2);
+    welcometothe.setPosition(400, 240); // Center the text in the window
+
+    starjump.setFont(font);
+    starjump.setString("Star Jump Visualizer");
+
+
+    starjump.setCharacterSize(46); // in pixels
+    starjump.setFillColor(sf::Color::White);
+    starjump.setStyle(sf::Text::Bold);
+    sf::FloatRect textRect = starjump.getLocalBounds();
+
+
+    starjump.setOrigin(textRect.width / 2, textRect.height / 2);
+    starjump.setPosition(400, 280); // Center the text in the window
 
     // Load and play background music
     sf::Music music;
@@ -40,10 +59,10 @@ int main() {
         }
 
         // Clear the screen with a light color
-        window.clear(sf::Color(204, 210, 253)); // Light blue color
+        window.clear(sf::Color(138, 127, 141)); // Light blue color
 
-        // Draw the text
-        window.draw(text);
+        window.draw(welcometothe);
+        window.draw(starjump);
 
         // Update the window
         window.display();
