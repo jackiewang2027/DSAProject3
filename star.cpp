@@ -112,5 +112,75 @@ std::vector<star> star::shellSort(const std::vector<star>& stars, std::string at
 }
 
 
+// Code retrieved/inspired by Module 6 Sorting Slides
+std::vector<star> star::mergeSort(std::vector<star>& stars, std::string attribute) {
+    // Initialize the left and right positions
+    int left = 0;
+    int right = stars.size() - 1;
+
+    // Make a temporary vector with the same size as stars to help prevent
+    // creation of redundant new vectors that would otherwise recursively be called
+    // Reduces memory usage
+    std::vector<star> temp(stars.size());
+
+    // Call helper function
+    mergeSortHelper(stars, temp, attribute, left, right);
+
+    // Return stars and its changes
+    return stars;
+}
+
+std::vector<star> star::mergeSortHelper(std::vector<star>& stars, std::vector<star>& temp, std::string attribute, int left, int right) {
+    // Checks if the right parameter is greater than left
+    if (left < right) {
+        // Calculate the middle of those two
+        int mid = left + (right - left) / 2;
+        // Call margeSortHelper until the vector can't be reduced anymore
+        mergeSortHelper(stars, temp, attribute, left, mid);
+        mergeSortHelper(stars, temp, attribute, mid + 1, right);
+        // Call merge
+        merge(stars, temp, left, mid, right, attribute);
+    }
+    // Return stars and its changes
+    return stars;
+}
+
+void star::merge(std::vector<star>& stars, std::vector<star>& temp, int left, int mid, int right, std::string attribute) {
+    // Declare index for the left subarray
+    int i = left;
+    // Declare index for the right subarray
+    int j = mid + 1;
+    // Declare starting index for the merged subarray
+    int k = left;
+
+
+    while (i <= mid && j <= right) {
+        // Comparing and merging based on the attribute
+        if (std::stod(stars[i].getAttribute(attribute)) <= std::stod(stars[j].getAttribute(attribute))){
+            temp[k++] = stars[i++];
+        } else {
+            temp[k++] = stars[j++];
+        }
+    }
+
+    // Copy the remaining elements of the left subarray, if any
+    while (i <= mid) {
+        temp[k++] = stars[i++];
+    }
+
+    // Copy the remaining elements of the right subarray, if any
+    while (j <= right) {
+        temp[k++] = stars[j++];
+    }
+
+    // Copy the merged elements back to the original array
+    for (i = left; i <= right; ++i) {
+        stars[i] = temp[i];
+    }
+}
+
+
+
+
 
 

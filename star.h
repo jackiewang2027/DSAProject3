@@ -16,7 +16,10 @@ class star{
 
     std::vector<star> readStarFile();
     std::map<std::string, std::vector<std::pair<std::string, std::string>>> starsList;
-
+    std::vector<star> mergeSortHelper(std::vector<star>& stars, std::vector<star>& temp, std::string attribute, int left, int right);
+    void merge(std::vector<star>& stars, std::vector<star>& temp, int left, int mid, int right, std::string attribute);
+    std::vector<star> quickSortHelper(const std::vector<star>& stars, std::string attribute, int low, int high);
+    int partition(const std::vector<star>& stars, std::string attribute, int low, int high);
 public:
     std::vector<star> stars;
     std::map<std::string, std::pair<std::string, std::string>> starsGraph;
@@ -29,6 +32,10 @@ public:
     std::vector<star> getStarVector();
 
     std::vector<star> shellSort(const std::vector<star>& stars, std::string atribute);
+
+    std::vector<star> mergeSort(std::vector<star>& stars, std::string attribute);
+
+    std::vector<star> quickSort(const std::vector<star>& stars, std::string attribute);
 
     //Getter function for attributes
     std::string getAttribute(std::string attribute){
@@ -54,5 +61,6 @@ public:
 
         return "0";
     }
+
 };
 #endif //PROJECT3_STAR_H
