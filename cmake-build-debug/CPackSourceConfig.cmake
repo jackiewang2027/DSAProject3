@@ -29,7 +29,7 @@ set(CPACK_IGNORE_FILES "/CVS/;/\\.svn/;/\\.bzr/;/\\.hg/;/\\.git/;\\.swp\$;\\.#;/
 set(CPACK_INNOSETUP_ARCHITECTURE "x64")
 set(CPACK_INSTALLED_DIRECTORIES "C:/Users/czhan/Desktop/DSAProject3;/")
 set(CPACK_INSTALL_CMAKE_PROJECTS "")
-set(CPACK_INSTALL_PREFIX "C:/Program Files (x86)/CMakeSFMLProject")
+set(CPACK_INSTALL_PREFIX "C:/Program Files (x86)/DSAProject3")
 set(CPACK_MODULE_PATH "")
 set(CPACK_MONOLITHIC_INSTALL "ON")
 set(CPACK_NSIS_CONTACT "team@sfml-dev.org")

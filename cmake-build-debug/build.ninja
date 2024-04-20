@@ -49,15 +49,22 @@ cmake_ninja_workdir = C$:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/
 
 build cmake_object_order_depends_target_DSAProject3: phony || cmake_object_order_depends_target_sfml-audio cmake_object_order_depends_target_sfml-graphics cmake_object_order_depends_target_sfml-system cmake_object_order_depends_target_sfml-window
 
-build CMakeFiles/DSAProject3.dir/src/main.cpp.obj: CXX_COMPILER__DSAProject3_unscanned_Debug C$:/Users/czhan/Desktop/DSAProject3/src/main.cpp || cmake_object_order_depends_target_DSAProject3
-  DEP_FILE = CMakeFiles\DSAProject3.dir\src\main.cpp.obj.d
+build CMakeFiles/DSAProject3.dir/src/star.cpp.obj: CXX_COMPILER__DSAProject3_unscanned_Debug C$:/Users/czhan/Desktop/DSAProject3/src/star.cpp || cmake_object_order_depends_target_DSAProject3
+  DEP_FILE = CMakeFiles\DSAProject3.dir\src\star.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -IC:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-src/include
   OBJECT_DIR = CMakeFiles\DSAProject3.dir
   OBJECT_FILE_DIR = CMakeFiles\DSAProject3.dir\src
 
-build CMakeFiles/DSAProject3.dir/src/star.cpp.obj: CXX_COMPILER__DSAProject3_unscanned_Debug C$:/Users/czhan/Desktop/DSAProject3/src/star.cpp || cmake_object_order_depends_target_DSAProject3
-  DEP_FILE = CMakeFiles\DSAProject3.dir\src\star.cpp.obj.d
+build CMakeFiles/DSAProject3.dir/src/main_interface.cpp.obj: CXX_COMPILER__DSAProject3_unscanned_Debug C$:/Users/czhan/Desktop/DSAProject3/src/main_interface.cpp || cmake_object_order_depends_target_DSAProject3
+  DEP_FILE = CMakeFiles\DSAProject3.dir\src\main_interface.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-src/include
+  OBJECT_DIR = CMakeFiles\DSAProject3.dir
+  OBJECT_FILE_DIR = CMakeFiles\DSAProject3.dir\src
+
+build CMakeFiles/DSAProject3.dir/src/main.cpp.obj: CXX_COMPILER__DSAProject3_unscanned_Debug C$:/Users/czhan/Desktop/DSAProject3/src/main.cpp || cmake_object_order_depends_target_DSAProject3
+  DEP_FILE = CMakeFiles\DSAProject3.dir\src\main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -IC:/Users/czhan/Desktop/DSAProject3/cmake-build-debug/_deps/sfml-src/include
   OBJECT_DIR = CMakeFiles\DSAProject3.dir
@@ -71,7 +78,7 @@ build CMakeFiles/DSAProject3.dir/src/star.cpp.obj: CXX_COMPILER__DSAProject3_uns
 #############################################
 # Link the executable bin\DSAProject3.exe
 
-build bin/DSAProject3.exe: CXX_EXECUTABLE_LINKER__DSAProject3_Debug CMakeFiles/DSAProject3.dir/src/main.cpp.obj CMakeFiles/DSAProject3.dir/src/star.cpp.obj | _deps/sfml-build/lib/libsfml-graphics-d.a _deps/sfml-build/lib/libsfml-audio-d.a _deps/sfml-build/lib/libsfml-window-d.a _deps/sfml-build/lib/libsfml-system-d.a || bin/sfml-audio-d-2.dll bin/sfml-graphics-d-2.dll bin/sfml-system-d-2.dll bin/sfml-window-d-2.dll
+build bin/DSAProject3.exe: CXX_EXECUTABLE_LINKER__DSAProject3_Debug CMakeFiles/DSAProject3.dir/src/star.cpp.obj CMakeFiles/DSAProject3.dir/src/main_interface.cpp.obj CMakeFiles/DSAProject3.dir/src/main.cpp.obj | _deps/sfml-build/lib/libsfml-graphics-d.a _deps/sfml-build/lib/libsfml-audio-d.a _deps/sfml-build/lib/libsfml-window-d.a _deps/sfml-build/lib/libsfml-system-d.a || bin/sfml-audio-d-2.dll bin/sfml-graphics-d-2.dll bin/sfml-system-d-2.dll bin/sfml-window-d-2.dll
   FLAGS = -g
   LINK_LIBRARIES = _deps/sfml-build/lib/libsfml-graphics-d.a  _deps/sfml-build/lib/libsfml-audio-d.a  _deps/sfml-build/lib/libsfml-window-d.a  _deps/sfml-build/lib/libsfml-system-d.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\DSAProject3.dir

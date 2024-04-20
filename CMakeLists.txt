@@ -10,10 +10,12 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(DSAProject3 src/main.cpp
+add_executable(DSAProject3
         src/star.cpp
         src/star.h
-        src/interface_objects.h)
+        src/interface_objects.h
+        src/main_interface.cpp
+        src/main.cpp)
 target_link_libraries(DSAProject3 PRIVATE sfml-graphics sfml-audio)
 target_compile_features(DSAProject3 PRIVATE cxx_std_17)
 
