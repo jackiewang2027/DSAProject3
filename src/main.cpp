@@ -1,7 +1,8 @@
-#include <iostream>
+/*#include <iostream>
 #include <chrono>
 #include <ctime>
 #include "star.h"
+#include "star.cpp"
 #include <iomanip>
 
 int main(){
@@ -249,4 +250,4 @@ int main(){
     // End message
     std::cout << "Thank you for playing!" << std::endl;
     return 0;
-}
+}*/

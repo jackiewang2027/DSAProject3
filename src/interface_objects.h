@@ -1,12 +1,3 @@
-
-#include <SFML/Graphics.hpp>
-#include <SFML/Graphics/Font.hpp>
-#include <iostream>
-using namespace std;
-
-#ifndef CMAKESFMLPROJECT_INTERFACE_OBJECTS_H
-#define CMAKESFMLPROJECT_INTERFACE_OBJECTS_H
-
 //colors
 //https://www.color-hex.com/color-palette/3339
 
@@ -14,8 +5,17 @@ using namespace std;
 //Luma sound effect
 //https://www.youtube.com/watch?v=6_ezvKQSTTg
 
-//Soundtrack (SMG OST: Star Festival)
+//Soundtrack (Super Mario Galaxy OST: File Select)
 //https://www.youtube.com/watch?v=XwM0lPS07Oc
+#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Audio.hpp>
+#include <iostream>
+using namespace std;
+
+#ifndef CMAKESFMLPROJECT_INTERFACE_OBJECTS_H
+#define CMAKESFMLPROJECT_INTERFACE_OBJECTS_H
+
 
 
 void setupWelcomeText(sf::Text& text, sf::Font& font);
@@ -23,6 +23,45 @@ void setupStarJumpText(sf::Text& text, sf::Font& font);
 void drawText(sf::RenderWindow& window, sf::Text& text);
 void setupPlayButton(sf::Text& text, sf::RectangleShape& button, sf::Font& font);
 void drawButton(sf::RenderWindow& window, sf::Text& text, sf::RectangleShape& button);
+
+
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <iostream>
+
+bool initializeResources(sf::Font& font, sf::Font& secondaryFont, sf::Texture& cursorTexture, sf::SoundBuffer& buffer, sf::Music& music) {
+    bool success = true;
+
+    // Load fonts
+    if (!font.loadFromFile("Fonts/Carrots.otf")) {
+        std::cerr << "Failed to load font Carrots.otf" << std::endl;
+        success = false;
+    }
+    if (!secondaryFont.loadFromFile("Fonts/Stars.ttf")) {
+        std::cerr << "Failed to load font Stars.ttf" << std::endl;
+        success = false;
+    }
+
+    // Load cursor texture
+    if (!cursorTexture.loadFromFile("luma2.png")) {
+        std::cerr << "Failed to load cursor image luma2.png" << std::endl;
+        success = false;
+    }
+
+    // Load sound effects
+    if (!buffer.loadFromFile("Music/Luma Sound Effect.wav")) {
+        std::cerr << "Failed to load sound effect Luma Sound Effect.wav" << std::endl;
+        success = false;
+    }
+
+    // Load background music
+    if (!music.openFromFile("Music/background.ogg")) {
+        std::cerr << "Failed to open background music file" << std::endl;
+        success = false;
+    }
+
+    return success;
+}
 
 void setupWelcomeText(sf::Text& text, sf::Font& font) {
     text.setFont(font);
@@ -72,6 +111,8 @@ void drawButton(sf::RenderWindow& window, sf::Text& text, sf::RectangleShape& bu
     window.draw(button);
     window.draw(text);
 }
+
+
 
 #endif //CMAKESFMLPROJECT_INTERFACE_OBJECTS_H
 
