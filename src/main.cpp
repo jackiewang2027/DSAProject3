@@ -6,7 +6,7 @@
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Star Jump Visualizer");
     sf::Font font, secondaryFont;
-    if (!font.loadFromFile("Carrots.otf") || !secondaryFont.loadFromFile("Stars.ttf")) {
+    if (!font.loadFromFile("Fonts/Carrots.otf") || !secondaryFont.loadFromFile("Fonts/Stars.ttf")) {
         std::cerr << "Failed to load fonts" << std::endl;
         return -1; // Exit if fonts are not loaded successfully
     }
@@ -18,12 +18,12 @@ int main() {
     setupPlayButton(playText, playButton, font);
 
     sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile("Luma Sound Effect.wav")) {
+    if (!buffer.loadFromFile("Music/Luma Sound Effect.wav")) {
         std::cerr << "Failed to load sound effect" << std::endl;
         return -1; // Exit if the sound effect is not loaded successfully
     }
     sf::Music music;
-    if (!music.openFromFile("background.ogg")) {
+    if (!music.openFromFile("Music/background.ogg")) {
         return -1;
     }
     music.setVolume(8);
