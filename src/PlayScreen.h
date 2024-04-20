@@ -9,16 +9,24 @@ class PlayScreen {
 private:
     sf::RenderWindow& window;
     sf::Font font;
-    sf::Text title;
-    sf::Text backButtonText;
-    sf::RectangleShape backButton;
+    sf::Text title, backButtonText, attributeOption1, attributeOption2, attributeOption3, attributeOption4, attributeOption5, confirmButtonText;
+    sf::RectangleShape backButton, confirmButton;
     sf::Color backgroundColor;
     sf::Texture cursorTexture;
     sf::Sprite cursorSprite;
-    sf::Text sortOption1, sortOption2;  // For sorting algorithms
-    sf::Text attributeOption1, attributeOption2, attributeOption3, attributeOption4, attributeOption5;  // For attributes
+    int selectedAttribute = -1;  // -1 means none selected
 
 public:
+    bool shouldTransitionToSortVisualization = false;
+    // Method to be called from the main application to check if it should transition
+    bool isReadyForSortVisualization() const {
+        return shouldTransitionToSortVisualization;
+    }
+
+    // Method to reset transition flag
+    void resetSortVisualizationFlag() {
+        shouldTransitionToSortVisualization = false;
+    }
     PlayScreen(sf::RenderWindow& win) : window(win) {
         if (!initializeResources()) {
             throw std::runtime_error("Failed to initialize resources for PlayScreen");
@@ -46,7 +54,7 @@ public:
 
     void setupScene() {
         title.setFont(font);
-        title.setString("Pick a Sort Type and Star Attribute");
+        title.setString("Pick a Star Attribute");
         title.setCharacterSize(36);
         title.setFillColor(sf::Color::White);
         title.setStyle(sf::Text::Bold);
@@ -66,91 +74,97 @@ public:
         backButton.setPosition(10, 10);
         backButton.setFillColor(sf::Color::Transparent);
 
-        // Initialize sorting algorithm options
-        sortOption1.setFont(font);
-        sortOption1.setString("Shell Sort");
-        sortOption1.setCharacterSize(30);
-        sortOption1.setFillColor(sf::Color::White);
-        sortOption1.setPosition(100, 150);
-
-        sortOption2.setFont(font);
-        sortOption2.setString("Merge Sort");
-        sortOption2.setCharacterSize(30);
-        sortOption2.setFillColor(sf::Color::White);
-        sortOption2.setPosition(100, 200);
-
         // Initialize attribute options
         attributeOption1.setFont(font);
         attributeOption1.setString("Distance");
         attributeOption1.setCharacterSize(30);
         attributeOption1.setFillColor(sf::Color::White);
-        attributeOption1.setPosition(400, 150);
+        attributeOption1.setPosition(300, 150);
 
         attributeOption2.setFont(font);
         attributeOption2.setString("Radial Velocity");
         attributeOption2.setCharacterSize(30);
         attributeOption2.setFillColor(sf::Color::White);
-        attributeOption2.setPosition(400, 200);
+        attributeOption2.setPosition(300, 200);
 
         attributeOption3.setFont(font);
         attributeOption3.setString("Luminosity");
         attributeOption3.setCharacterSize(30);
         attributeOption3.setFillColor(sf::Color::White);
-        attributeOption3.setPosition(400, 250);
+        attributeOption3.setPosition(300, 250);
 
         attributeOption4.setFont(font);
         attributeOption4.setString("Color Index");
         attributeOption4.setCharacterSize(30);
         attributeOption4.setFillColor(sf::Color::White);
-        attributeOption4.setPosition(400, 300);
+        attributeOption4.setPosition(300, 300);
 
         attributeOption5.setFont(font);
         attributeOption5.setString("Visual Magnitude");
         attributeOption5.setCharacterSize(30);
         attributeOption5.setFillColor(sf::Color::White);
-        attributeOption5.setPosition(400, 350);
+        attributeOption5.setPosition(300, 350);
+
+        // Setup Confirm Button
+        confirmButton.setSize(sf::Vector2f(200, 50));
+        confirmButton.setPosition(300, 450);
+        confirmButton.setFillColor(sf::Color::Transparent);
+        confirmButtonText.setFont(font);
+        confirmButtonText.setString("Confirm");
+        confirmButtonText.setCharacterSize(30);
+        confirmButtonText.setPosition(340, 455);
+        confirmButtonText.setFillColor(sf::Color::Transparent);
+    }
+
+    void toggleSelection(const sf::Vector2f& mousePos) {
+        // Handling attribute option clicks
+        handleAttributeSelection(mousePos);
+    }
+
+    void handleAttributeSelection(const sf::Vector2f& mousePos) {
+        if (backButton.getGlobalBounds().contains(mousePos)) {
+            shouldReturnToWelcome = true;
+            std::cout << "Back button clicked" << std::endl;
+        }
+        if (confirmButton.getGlobalBounds().contains(mousePos)){
+            std::cout << "Confirm button clicked" << std::endl;
+        }
+        sf::Text* attributeOptions[5] = {&attributeOption1, &attributeOption2, &attributeOption3, &attributeOption4, &attributeOption5};
+        for (int i = 0; i < 5; i++) {
+            if (attributeOptions[i]->getGlobalBounds().contains(mousePos)) {
+                if (selectedAttribute != i + 1) {
+                    selectedAttribute = i + 1;
+                    for (int j = 0; j < 5; j++) {
+                        attributeOptions[j]->setFillColor(sf::Color::White);
+                    }
+                    attributeOptions[i]->setFillColor(sf::Color(204, 210, 253));
+                } else {
+                    attributeOptions[i]->setFillColor(sf::Color::White);
+                    selectedAttribute = -1;
+                }
+                break;
+            }
+        }
+    }
+
+    void checkConfirmButton() {
+        if (selectedAttribute != -1) {
+            confirmButtonText.setFillColor(sf::Color::Green);  // Green when active
+        } else {
+            confirmButtonText.setFillColor(sf::Color::Transparent);  // Not clickable
+        }
     }
 
     void handleEvents() {
         sf::Event event;
         while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            } else if (event.type == sf::Event::MouseButtonPressed) {
+            if (event.type == sf::Event::Closed) window.close();
+            if (event.type == sf::Event::MouseButtonPressed) {
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-                if (backButton.getGlobalBounds().contains(mousePos)) {
-                    std::cout << "Back button clicked!" << std::endl;
-                    shouldReturnToWelcome = true;
-                }
-                // Handling sorting option clicks
-                if (sortOption1.getGlobalBounds().contains(mousePos)) {
-                    std::cout << "Shell Sort selected" << std::endl;
-                    // Implement action for selecting Shell Sort
-                }
-                if (sortOption2.getGlobalBounds().contains(mousePos)) {
-                    std::cout << "Merge Sort selected" << std::endl;
-                    // Implement action for selecting Merge Sort
-                }
-                // Handling attribute option clicks
-                if (attributeOption1.getGlobalBounds().contains(mousePos)) {
-                    std::cout << "Distance attribute selected" << std::endl;
-                    // Implement action for selecting Distance attribute
-                }
-                if (attributeOption2.getGlobalBounds().contains(mousePos)) {
-                    std::cout << "Radial Velocity attribute selected" << std::endl;
-                    // Implement action for selecting Radial Velocity attribute
-                }
-                if (attributeOption3.getGlobalBounds().contains(mousePos)) {
-                    std::cout << "Luminosity attribute selected" << std::endl;
-                    // Implement action for selecting Luminosity attribute
-                }
-                if (attributeOption4.getGlobalBounds().contains(mousePos)) {
-                    std::cout << "Color Index attribute selected" << std::endl;
-                    // Implement action for selecting Color Index attribute
-                }
-                if (attributeOption5.getGlobalBounds().contains(mousePos)) {
-                    std::cout << "Visual Magnitude attribute selected" << std::endl;
-                    // Implement action for selecting Visual Magnitude attribute
+                toggleSelection(mousePos);
+                checkConfirmButton();
+                if (confirmButton.getGlobalBounds().contains(mousePos) && selectedAttribute != -1) {
+                    shouldTransitionToSortVisualization = true;
                 }
             }
         }
@@ -158,17 +172,18 @@ public:
 
     void draw() {
         window.clear(backgroundColor);
-        cursorSprite.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
         window.draw(title);
         window.draw(backButtonText);
-        window.draw(sortOption1);
-        window.draw(sortOption2);
+        window.draw(backButton);
         window.draw(attributeOption1);
         window.draw(attributeOption2);
         window.draw(attributeOption3);
         window.draw(attributeOption4);
         window.draw(attributeOption5);
-        window.draw(cursorSprite);  // Ensure cursor is drawn last to be on top
+        window.draw(confirmButton);
+        window.draw(confirmButtonText);
+        cursorSprite.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
+        window.draw(cursorSprite);
         window.display();
     }
 

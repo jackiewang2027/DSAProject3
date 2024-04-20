@@ -45,7 +45,7 @@ public:
     std::vector<star> mergeSort(std::vector<star>& stars, std::string attribute);
 
     /*** Getter function for attributes */
-    std::string getAttribute(std::string attribute){
+    std::string getAttribute(std::string attribute) const {
         if(attribute == "commonName")
             return asc;  // WARNING commonName saves under asc
         if(attribute == "id")

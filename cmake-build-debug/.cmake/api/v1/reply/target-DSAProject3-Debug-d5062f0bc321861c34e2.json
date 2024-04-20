@@ -188,7 +188,8 @@
 			[
 				1,
 				4,
-				5
+				5,
+				6
 			]
 		}
 	],
@@ -225,6 +226,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "src/PlayScreen.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/SortVisualizationScreen.h",
 			"sourceGroupIndex" : 1
 		}
 	],
