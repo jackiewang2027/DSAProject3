@@ -8,7 +8,6 @@
 //colors
 //https://www.color-hex.com/color-palette/3339
 
-
 //Luma sound effect
 //https://www.youtube.com/watch?v=6_ezvKQSTTg
 
@@ -29,7 +28,7 @@ void setupWelcomeText(sf::Text& text, sf::Font& font) {
 
 void setupStarJumpText(sf::Text& text, sf::Font& font) {
     text.setFont(font);
-    text.setString("Star Jump Visualizer");
+    text.setString("Star Sort Visualizer");
     text.setCharacterSize(46);
     text.setFillColor(sf::Color::White);
     text.setStyle(sf::Text::Bold);
