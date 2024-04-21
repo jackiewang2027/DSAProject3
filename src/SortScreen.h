@@ -43,8 +43,8 @@ public:
         cursorSprite.setTexture(cursorTexture);
         cursorSprite.setOrigin(cursorTexture.getSize().x / 2, cursorTexture.getSize().y / 2);
 
-        if (!font.loadFromFile("Fonts/Carrots.otf")) {
-            std::cerr << "Failed to load font Carrots.otf for PlayScreen" << std::endl;
+            if (!font.loadFromFile("Fonts/CuteDino.ttf")) {
+            std::cerr << "Failed to load font CuteDino.ttf for PlayScreen" << std::endl;
             success = false;
         }
 
@@ -102,6 +102,7 @@ public:
             mergeStream << std::fixed << std::setprecision(2) << roundedMerge;
             std::string mergeString = mergeStream.str();
 
+            // Gets the star with the lowest distance and also has a common name
 
             for(int i = 0; i < shellSortedStars.size(); i++){
                 if(!shellSortedStars[i].getAttribute("commonName").empty()){
