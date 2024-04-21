@@ -14,7 +14,7 @@ int main() {
     bool onSelectScreen = false;
     bool onSortScreen = false;
 
-    std::string selectedAttribute;  // Variable to store the selected attribute
+    std::string selectedAttribute;
 
     while (window.isOpen()) {
         if (onWelcomeScreen) {
@@ -40,8 +40,8 @@ int main() {
                 onSelectScreen = false;
                 onWelcomeScreen = false;
                 onSortScreen = true;
-                selectedAttribute = selectScreen.getSelectedAttribute();  // Retrieve the selected attribute
-                sortScreen.setAttribute(selectedAttribute);  // Set the attribute in SortScreen
+                selectedAttribute = selectScreen.getSelectedAttribute();
+                sortScreen.setAttribute(selectedAttribute);
             }
         }
 

@@ -26,7 +26,6 @@ private:
     std::vector<star> shellSortedStars;
     std::vector<star> mergeSortedStars;
     std::string selectedAttributeString;
-    double shellSortTime, mergeSortTime;
 public:
     std::string getSelectedAttribute() const {
         return selectedAttributeString;
@@ -46,7 +45,7 @@ public:
             success = false;
         }
 
-        backgroundColor = sf::Color(138, 127, 141); // Use the same initial background color as WelcomeScreen
+        backgroundColor = sf::Color(138, 127, 141);
         return success;
     }
     SortScreen(sf::RenderWindow& win) : window(win) {
@@ -58,7 +57,7 @@ public:
 
     void setAttribute(const std::string& attribute) {
         this->selectedAttributeString = attribute; // Store the attribute
-        setupScene();  // You might want to call setupScene here to use the new attribute
+        setupScene();
     }
 
 
@@ -403,7 +402,7 @@ public:
         window.draw(backButton);
         window.draw(backButtonText);
         cursorSprite.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
-        window.draw(cursorSprite);  // Add this line to draw the cursor sprite
+        window.draw(cursorSprite);
         window.display();
     }
 

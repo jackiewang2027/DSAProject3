@@ -41,7 +41,7 @@ public:
             success = false;
         }
 
-        backgroundColor = sf::Color(138, 127, 141); // Use the same initial background color as WelcomeScreen
+        backgroundColor = sf::Color(138, 127, 141);
         return success;
     }
     std::string getSelectedAttribute() const {

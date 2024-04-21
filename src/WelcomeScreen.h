@@ -44,15 +44,15 @@ void drawText(sf::RenderWindow& window, sf::Text& text) {
 void setupPlayButton(sf::Text& text, sf::RectangleShape& button, sf::Font& font) {
     text.setFont(font);
     text.setString("Play");
-    text.setCharacterSize(30);  // Smaller size than title text
+    text.setCharacterSize(30);
     text.setFillColor(sf::Color::White);
     sf::FloatRect textRect = text.getLocalBounds();
     text.setOrigin(textRect.width / 2, textRect.height / 2);
-    text.setPosition(400, 375);  // Positioned under the "Welcome To The"
+    text.setPosition(400, 375);
 
     button.setSize(sf::Vector2f(textRect.width + 20, textRect.height + 20));
-    button.setFillColor(sf::Color(128, 128, 128));  // Grey button
-    button.setPosition(400 - button.getSize().x / 2, 360);  // Center the button horizontally
+    button.setFillColor(sf::Color(128, 128, 128));
+    button.setPosition(400 - button.getSize().x / 2, 360);
     button.setOutlineColor(sf::Color::White);
     button.setOutlineThickness(2);
 }
@@ -96,7 +96,7 @@ public:
             success = false;
         }
 
-        // Load cursor texture
+
         if (!cursorTexture.loadFromFile("Images/luma3.png")) {
             std::cerr << "Failed to load cursor image luma2.png" << std::endl;
             success = false;
@@ -104,7 +104,7 @@ public:
         cursorSprite.setTexture(cursorTexture);
         cursorSprite.setOrigin(cursorTexture.getSize().x / 2, cursorTexture.getSize().y / 2);
 
-        // Load sound effects
+
         if (!buffer.loadFromFile("Music/Luma Sound Effect.wav")) {
             std::cerr << "Failed to load sound effect Luma Sound Effect.wav" << std::endl;
             success = false;
@@ -112,7 +112,7 @@ public:
         clickSound.setBuffer(buffer);
         clickSound.setVolume(5);
 
-        // Load background music
+
         if (!music.openFromFile("Music/background.ogg")) {
             std::cerr << "Failed to open background music file" << std::endl;
             success = false;
