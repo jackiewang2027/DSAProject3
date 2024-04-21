@@ -35,9 +35,11 @@ int main() {
                 SelectScreen.shouldReturnToWelcome = false;  // Reset the flag here to prevent flickering
             }
 
-            if (SelectScreen.shouldStartPlaying) {
-                onSortScreen = true;
-            }
+        if (SelectScreen.shouldStartPlaying) {
+            onSelectScreen = false;
+            onWelcomeScreen = false;
+            onSortScreen = true;
+        }
 
         }
         if (onSortScreen) {
