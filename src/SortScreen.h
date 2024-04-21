@@ -102,7 +102,6 @@ public:
             mergeStream << std::fixed << std::setprecision(2) << roundedMerge;
             std::string mergeString = mergeStream.str();
 
-            // Gets the star with the lowest distance and also has a common name
 
             for(int i = 0; i < shellSortedStars.size(); i++){
                 if(!shellSortedStars[i].getAttribute("commonName").empty()){
