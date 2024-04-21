@@ -7,12 +7,14 @@ int main() {
     window.setMouseCursorVisible(false);
 
     WelcomeScreen welcomeScreen(window);
-    SelectScreen SelectScreen(window);
-    SortScreen SortScreen(window);
+    SelectScreen selectScreen(window);
+    SortScreen sortScreen(window);
 
     bool onWelcomeScreen = true;
     bool onSelectScreen = false;
     bool onSortScreen = false;
+
+    std::string selectedAttribute;  // Variable to store the selected attribute
 
     while (window.isOpen()) {
         if (onWelcomeScreen) {
@@ -21,34 +23,35 @@ int main() {
             if (welcomeScreen.shouldStartGame) {
                 onWelcomeScreen = false;
                 onSelectScreen = true;
-                welcomeScreen.shouldStartGame = false;  // Reset the flag
+                welcomeScreen.shouldStartGame = false;
             }
         }
 
-        // Handle events and drawing for the Play Screen
         if (onSelectScreen) {
-            SelectScreen.handleEvents();
-            SelectScreen.draw();
-            if (SelectScreen.shouldReturnToWelcome) {
+            selectScreen.handleEvents();
+            selectScreen.draw();
+            if (selectScreen.shouldReturnToWelcome) {
                 onSelectScreen = false;
                 onWelcomeScreen = true;
-                SelectScreen.shouldReturnToWelcome = false;  // Reset the flag here to prevent flickering
+                selectScreen.shouldReturnToWelcome = false;
             }
 
-        if (SelectScreen.shouldStartPlaying) {
-            onSelectScreen = false;
-            onWelcomeScreen = false;
-            onSortScreen = true;
+            if (selectScreen.shouldStartPlaying) {
+                onSelectScreen = false;
+                onWelcomeScreen = false;
+                onSortScreen = true;
+                selectedAttribute = selectScreen.getSelectedAttribute();  // Retrieve the selected attribute
+                sortScreen.setAttribute(selectedAttribute);  // Set the attribute in SortScreen
+            }
         }
 
-        }
         if (onSortScreen) {
-            SortScreen.handleEvents();
-            SortScreen.draw();
-            if (SortScreen.shouldReturnToSelectScreen) {
-                onSelectScreen = true;
+            sortScreen.handleEvents();
+            sortScreen.draw();
+            if (sortScreen.shouldReturnToSelectScreen) {
                 onSortScreen = false;
-                SortScreen.shouldReturnToSelectScreen = false;
+                onSelectScreen = true;
+                sortScreen.shouldReturnToSelectScreen = false;
             }
         }
     }

@@ -15,6 +15,7 @@ private:
     sf::Texture cursorTexture;
     sf::Sprite cursorSprite;
     int selectedAttribute = -1;  // -1 means none selected
+    std::string selectedAttributeString;
 
 public:
     bool shouldStartPlaying = false;
@@ -43,15 +44,8 @@ public:
         backgroundColor = sf::Color(138, 127, 141); // Use the same initial background color as WelcomeScreen
         return success;
     }
-    std::string getSelectedAttribute() {
-        switch (selectedAttribute) {
-            case 1: return "Distance";
-            case 2: return "Radial Velocity";
-            case 3: return "Luminosity";
-            case 4: return "Color Index";
-            case 5: return "Visual Magnitude";
-            default: return "";
-        }
+    std::string getSelectedAttribute() const {
+        return selectedAttributeString;
     }
 
     void setupScene() {
@@ -132,10 +126,14 @@ public:
             std::cout << "Confirm button clicked" << std::endl;
         }
         sf::Text* attributeOptions[5] = {&attributeOption1, &attributeOption2, &attributeOption3, &attributeOption4, &attributeOption5};
+        const std::string attributes[5] = {"Distance", "Radial Velocity", "Luminosity", "Color Index", "Visual Magnitude"};
+
         for (int i = 0; i < 5; i++) {
             if (attributeOptions[i]->getGlobalBounds().contains(mousePos)) {
                 if (selectedAttribute != i + 1) {
                     selectedAttribute = i + 1;
+                    selectedAttributeString = attributes[i]; // Update the string
+                    std::cout << selectedAttributeString;
                     for (int j = 0; j < 5; j++) {
                         attributeOptions[j]->setFillColor(sf::Color::White);
                     }
@@ -143,11 +141,13 @@ public:
                 } else {
                     attributeOptions[i]->setFillColor(sf::Color::White);
                     selectedAttribute = -1;
+                    selectedAttributeString = ""; // Clear the string if deselected
                 }
                 break;
             }
         }
     }
+
 
     void checkConfirmButton() {
         if (selectedAttribute != -1) {
