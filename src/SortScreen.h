@@ -97,7 +97,7 @@ public:
             auto mergeEndTime = std::chrono::steady_clock::now();
             auto timeToDoMerge = mergeEndTime - mergeStartTime;
             double timeToDoMergeSecs = std::chrono::duration_cast<std::chrono::duration<double>>(timeToDoMerge).count();
-            double roundedMerge = std::round(timeToDoMergeSecs * 100);
+            double roundedMerge = std::round(timeToDoMergeSecs * 100) / 100.0;
             std::stringstream mergeStream;
             mergeStream << std::fixed << std::setprecision(2) << roundedMerge;
             std::string mergeString = mergeStream.str();
@@ -107,7 +107,7 @@ public:
             for(int i = 0; i < shellSortedStars.size(); i++){
                 if(!shellSortedStars[i].getAttribute("commonName").empty()){
                     std::string lowName = shellSortedStars[i].getAttribute("commonName");
-                    std::string lowDist = shellSortedStars[i].getAttribute("dist");
+                    std::string lowDist = shellSortedStars[i].getAttribute("Distance");
                     lowStarMessage = "Star " + lowName + " has the lowest distance of " + lowDist;
                     break;
                 }
@@ -117,7 +117,7 @@ public:
             for(int i = 4999; i >= 0; i--){
                 if(!shellSortedStars[i].getAttribute("commonName").empty()){
                     std::string highName = shellSortedStars[i].getAttribute("commonName");
-                    std::string highDist = shellSortedStars[i].getAttribute("dist");
+                    std::string highDist = shellSortedStars[i].getAttribute("Distance");
                     highStarMessage = "Star " + highName + " has the highest distance of " + highDist;
                     break;
                 }
@@ -132,6 +132,223 @@ public:
             mergeMessage = "Time to perform merge sort was " + mergeString + " seconds.";
             std::cout << mergeMessage << std::endl;
         }
+
+
+
+        if(selectedAttributeString == "Radial Velocity" || selectedAttributeString == "Radial Velocity"){
+            // Perform and track time for shell sort
+            auto shellStartTime = std::chrono::steady_clock::now();;
+            shellSortedStars = s.shellSort(shellSortedStars, "Radial Velocity");
+            auto shellEndTime = std::chrono::steady_clock::now();
+            auto timeToDoShell = shellEndTime - shellStartTime;
+            double timeToDoShellSecs = std::chrono::duration_cast<std::chrono::duration<double>>(timeToDoShell).count();
+            double roundedShell = std::round(timeToDoShellSecs * 100) / 100.0;
+            std::stringstream shellStream;
+            shellStream << std::fixed << std::setprecision(2) << roundedShell;
+            std::string shellString = shellStream.str();
+
+            // Perform and track time for merge sort
+            auto mergeStartTime = std::chrono::steady_clock::now();
+            mergeSortedStars = s.mergeSort(mergeSortedStars,"Radial Velocity");
+            auto mergeEndTime = std::chrono::steady_clock::now();
+            auto timeToDoMerge = mergeEndTime - mergeStartTime;
+            double timeToDoMergeSecs = std::chrono::duration_cast<std::chrono::duration<double>>(timeToDoMerge).count();
+            double roundedMerge = std::round(timeToDoMergeSecs * 100) / 100.0;
+            std::stringstream mergeStream;
+            mergeStream << std::fixed << std::setprecision(2) << roundedMerge;
+            std::string mergeString = mergeStream.str();
+
+            // Gets the star with the lowest distance and also has a common name
+
+            for(int i = 0; i < shellSortedStars.size(); i++){
+                if(!shellSortedStars[i].getAttribute("commonName").empty()){
+                    std::string lowName = shellSortedStars[i].getAttribute("commonName");
+                    std::string lowDist = shellSortedStars[i].getAttribute("Radial Velocity");
+                    lowStarMessage = "Star " + lowName + " has the lowest Radial Velocity of " + lowDist;
+                    break;
+                }
+            }
+
+            // Gets the star with the highest distance and also has a common name
+            for(int i = 4999; i >= 0; i--){
+                if(!shellSortedStars[i].getAttribute("commonName").empty()){
+                    std::string highName = shellSortedStars[i].getAttribute("commonName");
+                    std::string highDist = shellSortedStars[i].getAttribute("Radial Velocity");
+                    highStarMessage = "Star " + highName + " has the highest Radial Velocity of " + highDist;
+                    break;
+                }
+            }
+
+            // Output time
+            std::cout << lowStarMessage << std::endl;
+            std::cout << highStarMessage << std::endl;
+            std::cout << "" << std::endl;
+            shellMessage = "Time to perform shell sort was " + shellString + " seconds.";
+            std::cout << shellMessage << std::endl;
+            mergeMessage = "Time to perform merge sort was " + mergeString + " seconds.";
+            std::cout << mergeMessage << std::endl;
+        }
+        if(selectedAttributeString == "Visual Magnitude" || selectedAttributeString == "Visual Magnitude"){
+            // Perform and track time for shell sort
+            auto shellStartTime = std::chrono::steady_clock::now();;
+            shellSortedStars = s.shellSort(shellSortedStars, "Visual Magnitude");
+            auto shellEndTime = std::chrono::steady_clock::now();
+            auto timeToDoShell = shellEndTime - shellStartTime;
+            double timeToDoShellSecs = std::chrono::duration_cast<std::chrono::duration<double>>(timeToDoShell).count();
+            double roundedShell = std::round(timeToDoShellSecs * 100) / 100.0;
+            std::stringstream shellStream;
+            shellStream << std::fixed << std::setprecision(2) << roundedShell;
+            std::string shellString = shellStream.str();
+
+            // Perform and track time for merge sort
+            auto mergeStartTime = std::chrono::steady_clock::now();
+            mergeSortedStars = s.mergeSort(mergeSortedStars,"Visual Magnitude");
+            auto mergeEndTime = std::chrono::steady_clock::now();
+            auto timeToDoMerge = mergeEndTime - mergeStartTime;
+            double timeToDoMergeSecs = std::chrono::duration_cast<std::chrono::duration<double>>(timeToDoMerge).count();
+            double roundedMerge = std::round(timeToDoMergeSecs * 100) / 100.0;
+            std::stringstream mergeStream;
+            mergeStream << std::fixed << std::setprecision(2) << roundedMerge;
+            std::string mergeString = mergeStream.str();
+
+            // Gets the star with the lowest distance and also has a common name
+
+            for(int i = 0; i < shellSortedStars.size(); i++){
+                if(!shellSortedStars[i].getAttribute("commonName").empty()){
+                    std::string lowName = shellSortedStars[i].getAttribute("commonName");
+                    std::string lowDist = shellSortedStars[i].getAttribute("Visual Magnitude");
+                    lowStarMessage = "Star " + lowName + " has the lowest Visual Magnitude of " + lowDist;
+                    break;
+                }
+            }
+
+            // Gets the star with the highest distance and also has a common name
+            for(int i = 4999; i >= 0; i--){
+                if(!shellSortedStars[i].getAttribute("commonName").empty()){
+                    std::string highName = shellSortedStars[i].getAttribute("commonName");
+                    std::string highDist = shellSortedStars[i].getAttribute("Visual Magnitude");
+                    highStarMessage = "Star " + highName + " has the highest Visual Magnitude of " + highDist;
+                    break;
+                }
+            }
+
+            // Output time
+            std::cout << lowStarMessage << std::endl;
+            std::cout << highStarMessage << std::endl;
+            std::cout << "" << std::endl;
+            shellMessage = "Time to perform shell sort was " + shellString + " seconds.";
+            std::cout << shellMessage << std::endl;
+            mergeMessage = "Time to perform merge sort was " + mergeString + " seconds.";
+            std::cout << mergeMessage << std::endl;
+        }
+        if(selectedAttributeString == "Color Index" || selectedAttributeString == "Color Index") {
+            // Perform and track time for shell sort
+            auto shellStartTime = std::chrono::steady_clock::now();;
+            shellSortedStars = s.shellSort(shellSortedStars, "Color Index");
+            auto shellEndTime = std::chrono::steady_clock::now();
+            auto timeToDoShell = shellEndTime - shellStartTime;
+            double timeToDoShellSecs = std::chrono::duration_cast<std::chrono::duration<double>>(timeToDoShell).count();
+            double roundedShell = std::round(timeToDoShellSecs * 100) / 100.0;
+            std::stringstream shellStream;
+            shellStream << std::fixed << std::setprecision(2) << roundedShell;
+            std::string shellString = shellStream.str();
+
+            // Perform and track time for merge sort
+            auto mergeStartTime = std::chrono::steady_clock::now();
+            mergeSortedStars = s.mergeSort(mergeSortedStars, "Color Index");
+            auto mergeEndTime = std::chrono::steady_clock::now();
+            auto timeToDoMerge = mergeEndTime - mergeStartTime;
+            double timeToDoMergeSecs = std::chrono::duration_cast<std::chrono::duration<double>>(timeToDoMerge).count();
+            double roundedMerge = std::round(timeToDoMergeSecs * 100) / 100.0;
+            std::stringstream mergeStream;
+            mergeStream << std::fixed << std::setprecision(2) << roundedMerge;
+            std::string mergeString = mergeStream.str();
+
+            // Gets the star with the lowest distance and also has a common name
+
+            for (int i = 0; i < shellSortedStars.size(); i++) {
+                if (!shellSortedStars[i].getAttribute("commonName").empty()) {
+                    std::string lowName = shellSortedStars[i].getAttribute("commonName");
+                    std::string lowDist = shellSortedStars[i].getAttribute("Color Index");
+                    lowStarMessage = "Star " + lowName + " has the lowest Color Index of " + lowDist;
+                    break;
+                }
+            }
+
+            // Gets the star with the highest distance and also has a common name
+            for (int i = 4999; i >= 0; i--) {
+                if (!shellSortedStars[i].getAttribute("commonName").empty()) {
+                    std::string highName = shellSortedStars[i].getAttribute("commonName");
+                    std::string highDist = shellSortedStars[i].getAttribute("Color Index");
+                    highStarMessage = "Star " + highName + " has the highest Color Index of " + highDist;
+                    break;
+                }
+            }
+            std::cout << lowStarMessage << std::endl;
+            std::cout << highStarMessage << std::endl;
+            std::cout << "" << std::endl;
+            shellMessage = "Time to perform shell sort was " + shellString + " seconds.";
+            std::cout << shellMessage << std::endl;
+            mergeMessage = "Time to perform merge sort was " + mergeString + " seconds.";
+            std::cout << mergeMessage << std::endl;
+        }
+            if (selectedAttributeString == "Luminosity" || selectedAttributeString == "Luminosity") {
+                // Perform and track time for shell sort
+                auto shellStartTime = std::chrono::steady_clock::now();;
+                shellSortedStars = s.shellSort(shellSortedStars, "Luminosity");
+                auto shellEndTime = std::chrono::steady_clock::now();
+                auto timeToDoShell = shellEndTime - shellStartTime;
+                double timeToDoShellSecs = std::chrono::duration_cast<std::chrono::duration<double>>(
+                        timeToDoShell).count();
+                double roundedShell = std::round(timeToDoShellSecs * 100) / 100.0;
+                std::stringstream shellStream;
+                shellStream << std::fixed << std::setprecision(2) << roundedShell;
+                std::string shellString = shellStream.str();
+
+                // Perform and track time for merge sort
+                auto mergeStartTime = std::chrono::steady_clock::now();
+                mergeSortedStars = s.mergeSort(mergeSortedStars, "Luminosity");
+                auto mergeEndTime = std::chrono::steady_clock::now();
+                auto timeToDoMerge = mergeEndTime - mergeStartTime;
+                double timeToDoMergeSecs = std::chrono::duration_cast<std::chrono::duration<double>>(
+                        timeToDoMerge).count();
+                double roundedMerge = std::round(timeToDoMergeSecs * 100) / 100.0;
+                std::stringstream mergeStream;
+                mergeStream << std::fixed << std::setprecision(2) << roundedMerge;
+                std::string mergeString = mergeStream.str();
+
+                // Gets the star with the lowest distance and also has a common name
+
+                for (int i = 0; i < shellSortedStars.size(); i++) {
+                    if (!shellSortedStars[i].getAttribute("commonName").empty()) {
+                        std::string lowName = shellSortedStars[i].getAttribute("commonName");
+                        std::string lowDist = shellSortedStars[i].getAttribute("Luminosity");
+                        lowStarMessage = "Star " + lowName + " has the lowest Luminosity of " + lowDist;
+                        break;
+                    }
+                }
+
+                // Gets the star with the highest distance and also has a common name
+                for (int i = 4999; i >= 0; i--) {
+                    if (!shellSortedStars[i].getAttribute("commonName").empty()) {
+                        std::string highName = shellSortedStars[i].getAttribute("commonName");
+                        std::string highDist = shellSortedStars[i].getAttribute("Luminosity");
+                        highStarMessage = "Star " + highName + " has the highest Luminosity of " + highDist;
+                        break;
+                    }
+                }
+
+                // Output time
+                std::cout << lowStarMessage << std::endl;
+                std::cout << highStarMessage << std::endl;
+                std::cout << "" << std::endl;
+                shellMessage = "Time to perform shell sort was " + shellString + " seconds.";
+                std::cout << shellMessage << std::endl;
+                mergeMessage = "Time to perform merge sort was " + mergeString + " seconds.";
+                std::cout << mergeMessage << std::endl;
+            }
+
+
 
         headerText.setFont(font);
         headerText.setString("Sorting Results: " + selectedAttributeString);
@@ -149,6 +366,8 @@ public:
         detailsText.setFillColor(sf::Color::White);
         detailsText.setPosition(50, 100);
     }
+
+
 
     void handleEvents() {
         sf::Event event;
