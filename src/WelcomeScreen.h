@@ -151,7 +151,6 @@ public:
                 if (event.mouseButton.button == sf::Mouse::Left) {
                     clickSound.play();  // Play sound effect
                     if (playButton.getGlobalBounds().contains(window.mapPixelToCoords(sf::Mouse::getPosition(window)))) {
-                        std::cout << "Play button clicked!" << std::endl;
                         shouldStartGame = true; // Set the flag to transition to the play scene
                     }
                 }

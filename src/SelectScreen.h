@@ -120,11 +120,8 @@ public:
     void handleAttributeSelection(const sf::Vector2f& mousePos) {
         if (backButton.getGlobalBounds().contains(mousePos)) {
             shouldReturnToWelcome = true;
-            std::cout << "Back button clicked" << std::endl;
         }
-        if (confirmButton.getGlobalBounds().contains(mousePos)){
-            std::cout << "Confirm button clicked" << std::endl;
-        }
+
         sf::Text* attributeOptions[5] = {&attributeOption1, &attributeOption2, &attributeOption3, &attributeOption4, &attributeOption5};
         const std::string attributes[5] = {"Distance", "Radial Velocity", "Luminosity", "Color Index", "Visual Magnitude"};
 
@@ -133,7 +130,6 @@ public:
                 if (selectedAttribute != i + 1) {
                     selectedAttribute = i + 1;
                     selectedAttributeString = attributes[i]; // Update the string
-                    std::cout << selectedAttributeString;
                     for (int j = 0; j < 5; j++) {
                         attributeOptions[j]->setFillColor(sf::Color::White);
                     }

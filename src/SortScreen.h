@@ -132,13 +132,9 @@ public:
             }
 
             // Output time
-            std::cout << lowStarMessage << std::endl;
-            std::cout << highStarMessage << std::endl;
-            std::cout << "" << std::endl;
+
             shellMessage = "Time to perform shell sort was " + shellString + " seconds.";
-            std::cout << shellMessage << std::endl;
             mergeMessage = "Time to perform merge sort was " + mergeString + " seconds.";
-            std::cout << mergeMessage << std::endl;
         }
 
 
@@ -188,13 +184,9 @@ public:
             }
 
             // Output time
-            std::cout << lowStarMessage << std::endl;
-            std::cout << highStarMessage << std::endl;
-            std::cout << "" << std::endl;
+
             shellMessage = "Time to perform shell sort was " + shellString + " seconds.";
-            std::cout << shellMessage << std::endl;
             mergeMessage = "Time to perform merge sort was " + mergeString + " seconds.";
-            std::cout << mergeMessage << std::endl;
         }
         if(selectedAttributeString == "Visual Magnitude" || selectedAttributeString == "Visual Magnitude"){
             // Perform and track time for shell sort
@@ -241,13 +233,9 @@ public:
             }
 
             // Output time
-            std::cout << lowStarMessage << std::endl;
-            std::cout << highStarMessage << std::endl;
-            std::cout << "" << std::endl;
+
             shellMessage = "Time to perform shell sort was " + shellString + " seconds.";
-            std::cout << shellMessage << std::endl;
             mergeMessage = "Time to perform merge sort was " + mergeString + " seconds.";
-            std::cout << mergeMessage << std::endl;
         }
         if(selectedAttributeString == "Color Index" || selectedAttributeString == "Color Index") {
             // Perform and track time for shell sort
@@ -292,13 +280,9 @@ public:
                     break;
                 }
             }
-            std::cout << lowStarMessage << std::endl;
-            std::cout << highStarMessage << std::endl;
-            std::cout << "" << std::endl;
+
             shellMessage = "Time to perform shell sort was " + shellString + " seconds.";
-            std::cout << shellMessage << std::endl;
             mergeMessage = "Time to perform merge sort was " + mergeString + " seconds.";
-            std::cout << mergeMessage << std::endl;
         }
             if (selectedAttributeString == "Luminosity" || selectedAttributeString == "Luminosity") {
                 // Perform and track time for shell sort
@@ -347,13 +331,9 @@ public:
                 }
 
                 // Output time
-                std::cout << lowStarMessage << std::endl;
-                std::cout << highStarMessage << std::endl;
-                std::cout << "" << std::endl;
+
                 shellMessage = "Time to perform shell sort was " + shellString + " seconds.";
-                std::cout << shellMessage << std::endl;
                 mergeMessage = "Time to perform merge sort was " + mergeString + " seconds.";
-                std::cout << mergeMessage << std::endl;
             }
 
 
@@ -387,7 +367,6 @@ public:
                 sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
                 if (backButton.getGlobalBounds().contains(mousePos)) {
                     shouldReturnToSelectScreen = true;
-                    std::cout << "Back button clicked" << std::endl;
 
                 }
             }
