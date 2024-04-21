@@ -25,6 +25,11 @@ int main(){
         std::vector<star> shellSortedStars;
         std::vector<star> mergeSortedStars;
 
+        std::string lowStarMessage;
+        std::string highStarMessage;
+        std::string shellMessage;
+        std::string mergeMessage;
+
         // Resize them to be 5000-star objects
         shellSortedStars.resize(5000);
         mergeSortedStars.resize(5000);
@@ -69,7 +74,7 @@ int main(){
             std::string mergeString = mergeStream.str();
 
             // Gets the star with the lowest distance and also has a common name
-            std::string lowStarMessage;
+
             for(int i = 0; i < shellSortedStars.size(); i++){
                 if(!shellSortedStars[i].getAttribute("commonName").empty()){
                     std::string lowName = shellSortedStars[i].getAttribute("commonName");
@@ -80,7 +85,6 @@ int main(){
             }
 
             // Gets the star with the highest distance and also has a common name
-            std::string highStarMessage;
             for(int i = 4999; i >= 0; i--){
                 if(!shellSortedStars[i].getAttribute("commonName").empty()){
                     std::string highName = shellSortedStars[i].getAttribute("commonName");
@@ -94,9 +98,9 @@ int main(){
             std::cout << lowStarMessage << std::endl;
             std::cout << highStarMessage << std::endl;
             std::cout << "" << std::endl;
-            std::string shellMessage = "Time to perform shell sort was " + shellString + " seconds.";
+            shellMessage = "Time to perform shell sort was " + shellString + " seconds.";
             std::cout << shellMessage << std::endl;
-            std::string mergeMessage = "Time to perform merge sort was " + mergeString + " seconds.";
+            mergeMessage = "Time to perform merge sort was " + mergeString + " seconds.";
             std::cout << mergeMessage << std::endl;
         }
 
