@@ -32,8 +32,6 @@ public:
         return selectedAttributeString;
     }
 
-    bool shouldReturnToSelectScreen = false;
-
     bool initializeResources() {
         bool success = true;
         if (!cursorTexture.loadFromFile("Images/luma3.png")) {
@@ -67,6 +65,17 @@ public:
 
 
     void setupScene() {
+        backButtonText.setFont(font);
+        backButtonText.setString("< Back");
+        backButtonText.setCharacterSize(24);
+        backButtonText.setFillColor(sf::Color::White);
+        sf::FloatRect backButtonRect = backButtonText.getLocalBounds();
+        backButtonText.setOrigin(backButtonRect.left, backButtonRect.top);
+        backButtonText.setPosition(10, 10);
+
+        backButton.setSize(sf::Vector2f(backButtonRect.width + 20, backButtonRect.height + 20));
+        backButton.setPosition(10, 10);
+        backButton.setFillColor(sf::Color::Transparent);
         star s;
         std::vector<star> stars = s.readStarFile();
         std::string lowStarMessage;
@@ -397,6 +406,8 @@ public:
         window.draw(cursorSprite);  // Add this line to draw the cursor sprite
         window.display();
     }
+
+    bool shouldReturnToSelectScreen = false;
 
 };
 

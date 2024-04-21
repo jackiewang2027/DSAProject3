@@ -27,7 +27,7 @@ int main() {
             }
         }
 
-        if (onSelectScreen) {
+        else if (onSelectScreen) {
             selectScreen.handleEvents();
             selectScreen.draw();
             if (selectScreen.shouldReturnToWelcome) {
@@ -48,11 +48,11 @@ int main() {
         if (onSortScreen) {
             sortScreen.handleEvents();
             sortScreen.draw();
-            if (sortScreen.shouldReturnToSelectScreen) {
-                onSortScreen = false;
-                onSelectScreen = true;
-                sortScreen.shouldReturnToSelectScreen = false;
-            }
+        }
+        if (sortScreen.shouldReturnToSelectScreen) {
+            onSortScreen = false;
+            onSelectScreen = true;
+            sortScreen.shouldReturnToSelectScreen = false;
         }
     }
 
