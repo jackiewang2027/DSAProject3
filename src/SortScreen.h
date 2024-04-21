@@ -6,7 +6,7 @@
 #include <vector>
 #include "star.h"
 
-class SortVisualizationScreen {
+class SortScreen {
 private:
 
     sf::Color backgroundColor;
@@ -42,11 +42,11 @@ public:
         backgroundColor = sf::Color(138, 127, 141); // Use the same initial background color as WelcomeScreen
         return success;
     }
-    SortVisualizationScreen(sf::RenderWindow& win) : window(win) {
-            if (!initializeResources()) {
-                throw std::runtime_error("Failed to initialize resources for PlayScreen");
-            }
-            setupScene();
+    SortScreen(sf::RenderWindow& win) : window(win) {
+        if (!initializeResources()) {
+            throw std::runtime_error("Failed to initialize resources for PlayScreen");
+        }
+        setupScene();
     }
 
     void setupScene() {

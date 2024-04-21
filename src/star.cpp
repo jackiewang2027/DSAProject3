@@ -182,4 +182,3 @@ void star::merge(std::vector<star>& stars, std::vector<star>& temp, int left, in
 
 
 
-

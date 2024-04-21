@@ -5,7 +5,7 @@
 #include <iostream>
 #include "WelcomeScreen.h"
 
-class PlayScreen {
+class SelectScreen {
 private:
     sf::RenderWindow& window;
     sf::Font font;
@@ -17,19 +17,11 @@ private:
     int selectedAttribute = -1;  // -1 means none selected
 
 public:
-    bool shouldTransitionToSortVisualization = false;
-    // Method to be called from the main application to check if it should transition
-    bool isReadyForSortVisualization() const {
-        return shouldTransitionToSortVisualization;
-    }
+    bool shouldStartPlaying = false;
 
-    // Method to reset transition flag
-    void resetSortVisualizationFlag() {
-        shouldTransitionToSortVisualization = false;
-    }
-    PlayScreen(sf::RenderWindow& win) : window(win) {
+    SelectScreen(sf::RenderWindow& win) : window(win) {
         if (!initializeResources()) {
-            throw std::runtime_error("Failed to initialize resources for PlayScreen");
+            throw std::runtime_error("Failed to initialize resources for SelectScreen");
         }
         setupScene();
     }
@@ -44,7 +36,7 @@ public:
         cursorSprite.setOrigin(cursorTexture.getSize().x / 2, cursorTexture.getSize().y / 2);
 
         if (!font.loadFromFile("Fonts/Carrots.otf")) {
-            std::cerr << "Failed to load font Carrots.otf for PlayScreen" << std::endl;
+            std::cerr << "Failed to load font Carrots.otf for SelectScreen" << std::endl;
             success = false;
         }
 
@@ -164,7 +156,7 @@ public:
                 toggleSelection(mousePos);
                 checkConfirmButton();
                 if (confirmButton.getGlobalBounds().contains(mousePos) && selectedAttribute != -1) {
-                    shouldTransitionToSortVisualization = true;
+                    shouldStartPlaying = true;
                 }
             }
         }

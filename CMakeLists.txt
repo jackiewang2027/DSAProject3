@@ -16,8 +16,9 @@ add_executable(DSAProject3
         src/main_interface.cpp
         src/main.cpp
         src/WelcomeScreen.h
-        src/PlayScreen.h
-        src/SortVisualizationScreen.h)
+        src/SelectScreen.h
+        src/SortScreen.h
+)
 target_link_libraries(DSAProject3 PRIVATE sfml-graphics sfml-audio)
 target_compile_features(DSAProject3 PRIVATE cxx_std_17)
 
