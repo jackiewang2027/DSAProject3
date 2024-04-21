@@ -43,6 +43,16 @@ public:
         backgroundColor = sf::Color(138, 127, 141); // Use the same initial background color as WelcomeScreen
         return success;
     }
+    std::string getSelectedAttribute() {
+        switch (selectedAttribute) {
+            case 1: return "Distance";
+            case 2: return "Radial Velocity";
+            case 3: return "Luminosity";
+            case 4: return "Color Index";
+            case 5: return "Visual Magnitude";
+            default: return "";
+        }
+    }
 
     void setupScene() {
         title.setFont(font);

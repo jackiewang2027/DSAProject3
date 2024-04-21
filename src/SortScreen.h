@@ -23,7 +23,6 @@ private:
     float shellSortTime, mergeSortTime;
 
 public:
-    bool shouldReturnToPlayScreen = true;
 
     bool initializeResources() {
         bool success = true;
@@ -68,37 +67,51 @@ public:
         detailsText.setFillColor(sf::Color::White);
         detailsText.setPosition(50, 100);
 
-        // Setup back button
-        backButton.setSize(sf::Vector2f(100, 50));
-        backButton.setFillColor(sf::Color::White);
-        backButton.setPosition(50, 300);
+
         backButtonText.setFont(font);
-        backButtonText.setString("Back");
+        backButtonText.setString("< Back");
         backButtonText.setCharacterSize(24);
         backButtonText.setFillColor(sf::Color::White);
-        backButtonText.setPosition(60, 310);
+        sf::FloatRect backButtonRect = backButtonText.getLocalBounds();
+        backButtonText.setOrigin(backButtonRect.left, backButtonRect.top);
+        backButtonText.setPosition(10, 10);
+
+        backButton.setSize(sf::Vector2f(backButtonRect.width + 20, backButtonRect.height + 20));
+        backButton.setPosition(10, 10);
+        backButton.setFillColor(sf::Color::Transparent);
+
     }
 
     void handleEvents() {
         sf::Event event;
         while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) window.close();
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            }
             if (event.type == sf::Event::MouseButtonPressed) {
-                if (backButton.getGlobalBounds().contains(window.mapPixelToCoords(sf::Mouse::getPosition(window)))) {
-                    shouldReturnToPlayScreen = true;
+                sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+                if (backButton.getGlobalBounds().contains(mousePos)) {
+                    shouldReturnToSelectScreen = true;
+                    std::cout << "Back button clicked" << std::endl;
+
                 }
             }
         }
     }
 
+
     void draw() {
-        window.clear(sf::Color(0, 0, 0));  // Black background for clarity
+        window.clear(backgroundColor);
         window.draw(headerText);
         window.draw(detailsText);
         window.draw(backButton);
         window.draw(backButtonText);
+        cursorSprite.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
+        window.draw(cursorSprite);  // Add this line to draw the cursor sprite
         window.display();
     }
+    bool shouldReturnToSelectScreen = false;
+
 };
 
 #endif // SORT_VISUALIZATION_SCREEN_H

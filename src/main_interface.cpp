@@ -45,6 +45,11 @@ int main() {
         if (onSortScreen) {
             SortScreen.handleEvents();
             SortScreen.draw();
+            if (SortScreen.shouldReturnToSelectScreen) {
+                onSelectScreen = true;
+                onSortScreen = false;
+                SortScreen.shouldReturnToSelectScreen = false;
+            }
         }
     }
 
