@@ -69,28 +69,30 @@ int main(){
             std::string mergeString = mergeStream.str();
 
             // Gets the star with the lowest distance and also has a common name
+            std::string lowStarMessage;
             for(int i = 0; i < shellSortedStars.size(); i++){
                 if(!shellSortedStars[i].getAttribute("commonName").empty()){
                     std::string lowName = shellSortedStars[i].getAttribute("commonName");
                     std::string lowDist = shellSortedStars[i].getAttribute("dist");
-                    std::string lowStarMessage = "Star " + lowName + " has the lowest distance of " + lowDist;
-                    std::cout << lowStarMessage << std::endl;
+                    lowStarMessage = "Star " + lowName + " has the lowest distance of " + lowDist;
                     break;
                 }
             }
 
             // Gets the star with the highest distance and also has a common name
+            std::string highStarMessage;
             for(int i = 4999; i >= 0; i--){
                 if(!shellSortedStars[i].getAttribute("commonName").empty()){
                     std::string highName = shellSortedStars[i].getAttribute("commonName");
                     std::string highDist = shellSortedStars[i].getAttribute("dist");
-                    std::string highStarMessage = "Star " + highName + " has the highest distance of " + highDist;
-                    std::cout << highStarMessage << std::endl;
+                    highStarMessage = "Star " + highName + " has the highest distance of " + highDist;
                     break;
                 }
             }
 
             // Output time
+            std::cout << lowStarMessage << std::endl;
+            std::cout << highStarMessage << std::endl;
             std::cout << "" << std::endl;
             std::string shellMessage = "Time to perform shell sort was " + shellString + " seconds.";
             std::cout << shellMessage << std::endl;
