@@ -89,6 +89,7 @@ public:
         }
         if(selectedAttributeString == "Distance" || selectedAttributeString == "distance"){
             // Perform and track time for shell sort
+            // https://cplusplus.com/reference/chrono/ using chrono library to keep track of sorting time from start to stop
             auto shellStartTime = std::chrono::steady_clock::now();;
             shellSortedStars = s.shellSort(shellSortedStars, "dist");
             auto shellEndTime = std::chrono::steady_clock::now();
@@ -100,6 +101,7 @@ public:
             std::string shellString = shellStream.str();
 
             // Perform and track time for merge sort
+            // https://cplusplus.com/reference/chrono/ using chrono library to keep track of sorting time from start to stop
             auto mergeStartTime = std::chrono::steady_clock::now();
             mergeSortedStars = s.mergeSort(mergeSortedStars,"dist");
             auto mergeEndTime = std::chrono::steady_clock::now();
@@ -141,6 +143,8 @@ public:
 
         if(selectedAttributeString == "Radial Velocity" || selectedAttributeString == "Radial Velocity"){
             // Perform and track time for shell sort
+            // https://cplusplus.com/reference/chrono/ using chrono library to keep track of sorting time from start to stop
+
             auto shellStartTime = std::chrono::steady_clock::now();;
             shellSortedStars = s.shellSort(shellSortedStars, "Radial Velocity");
             auto shellEndTime = std::chrono::steady_clock::now();
@@ -152,6 +156,8 @@ public:
             std::string shellString = shellStream.str();
 
             // Perform and track time for merge sort
+            // https://cplusplus.com/reference/chrono/ using chrono library to keep track of sorting time from start to stop
+
             auto mergeStartTime = std::chrono::steady_clock::now();
             mergeSortedStars = s.mergeSort(mergeSortedStars,"Radial Velocity");
             auto mergeEndTime = std::chrono::steady_clock::now();
@@ -190,6 +196,8 @@ public:
         }
         if(selectedAttributeString == "Visual Magnitude" || selectedAttributeString == "Visual Magnitude"){
             // Perform and track time for shell sort
+            // https://cplusplus.com/reference/chrono/ using chrono library to keep track of sorting time from start to stop
+
             auto shellStartTime = std::chrono::steady_clock::now();;
             shellSortedStars = s.shellSort(shellSortedStars, "Visual Magnitude");
             auto shellEndTime = std::chrono::steady_clock::now();
@@ -201,6 +209,8 @@ public:
             std::string shellString = shellStream.str();
 
             // Perform and track time for merge sort
+            // https://cplusplus.com/reference/chrono/ using chrono library to keep track of sorting time from start to stop
+
             auto mergeStartTime = std::chrono::steady_clock::now();
             mergeSortedStars = s.mergeSort(mergeSortedStars,"Visual Magnitude");
             auto mergeEndTime = std::chrono::steady_clock::now();
@@ -239,6 +249,8 @@ public:
         }
         if(selectedAttributeString == "Color Index" || selectedAttributeString == "Color Index") {
             // Perform and track time for shell sort
+            // https://cplusplus.com/reference/chrono/ using chrono library to keep track of sorting time from start to stop
+
             auto shellStartTime = std::chrono::steady_clock::now();;
             shellSortedStars = s.shellSort(shellSortedStars, "Color Index");
             auto shellEndTime = std::chrono::steady_clock::now();
@@ -250,6 +262,8 @@ public:
             std::string shellString = shellStream.str();
 
             // Perform and track time for merge sort
+            // https://cplusplus.com/reference/chrono/ using chrono library to keep track of sorting time from start to stop
+
             auto mergeStartTime = std::chrono::steady_clock::now();
             mergeSortedStars = s.mergeSort(mergeSortedStars, "Color Index");
             auto mergeEndTime = std::chrono::steady_clock::now();
@@ -286,6 +300,8 @@ public:
         }
             if (selectedAttributeString == "Luminosity" || selectedAttributeString == "Luminosity") {
                 // Perform and track time for shell sort
+                // https://cplusplus.com/reference/chrono/ using chrono library to keep track of sorting time from start to stop
+
                 auto shellStartTime = std::chrono::steady_clock::now();;
                 shellSortedStars = s.shellSort(shellSortedStars, "Luminosity");
                 auto shellEndTime = std::chrono::steady_clock::now();
@@ -298,6 +314,8 @@ public:
                 std::string shellString = shellStream.str();
 
                 // Perform and track time for merge sort
+                // https://cplusplus.com/reference/chrono/ using chrono library to keep track of sorting time from start to stop
+
                 auto mergeStartTime = std::chrono::steady_clock::now();
                 mergeSortedStars = s.mergeSort(mergeSortedStars, "Luminosity");
                 auto mergeEndTime = std::chrono::steady_clock::now();

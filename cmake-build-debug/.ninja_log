@@ -306,3 +306,6 @@
 1368	1552	7354357519513350	bin/DSAProject3.exe	ed496bf14b11639c
 8	1528	7354408162950809	CMakeFiles/DSAProject3.dir/src/main_interface.cpp.obj	3e9c96dbd955109a
 1529	1826	7354408165901674	bin/DSAProject3.exe	ed496bf14b11639c
+19	773	7355009749528936	CMakeFiles/DSAProject3.dir/src/main_interface.cpp.obj	3e9c96dbd955109a
+9	1379	7355009755575607	CMakeFiles/DSAProject3.dir/src/main.cpp.obj	352f7618bb5d441a
+1379	2359	7355009765344136	bin/DSAProject3.exe	ed496bf14b11639c

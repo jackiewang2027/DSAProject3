@@ -21,6 +21,7 @@ class star{
 public:
     std::vector<star> readStarFile() {
         std::fstream fin;
+        //https://www.geeksforgeeks.org/file-handling-c-classes/ citation for file handling and opening .csv file
         fin.open("Star Data.csv", std::ios::in);
 
         if (!fin.is_open()) {
@@ -75,6 +76,7 @@ public:
     std::vector<star> getStarVector() {
         return readStarFile();
     }
+    //citation: Module 6 - Sorting (Slide 38,74)
     std::vector<star> shellSort(const std::vector<star>& stars, std::string attribute) {
         std::vector<star> sortedStars = stars;
         int gap = sortedStars.size() / 2;
