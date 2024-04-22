@@ -14,7 +14,6 @@ add_executable(DSAProject3
         src/star.cpp
         src/star.h
         src/main_interface.cpp
-        src/main.cpp
         src/WelcomeScreen.h
         src/SelectScreen.h
         src/SortScreen.h

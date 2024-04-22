@@ -16,6 +16,7 @@
 // Helper functions to be included directly in the WelcomeScreen class or as standalone in this file.
 
 void setupWelcomeText(sf::Text& text, sf::Font& font) {
+    //text element with predefined styling
     text.setFont(font);
     text.setString("Welcome To The");
     text.setCharacterSize(42);
@@ -27,6 +28,7 @@ void setupWelcomeText(sf::Text& text, sf::Font& font) {
 }
 
 void setupStarJumpText(sf::Text& text, sf::Font& font) {
+    //main title text
     text.setFont(font);
     text.setString("Star Sort Visualizer");
     text.setCharacterSize(46);
@@ -42,6 +44,7 @@ void drawText(sf::RenderWindow& window, sf::Text& text) {
 }
 
 void setupPlayButton(sf::Text& text, sf::RectangleShape& button, sf::Font& font) {
+    //sets up the play button
     text.setFont(font);
     text.setString("Play");
     text.setCharacterSize(30);
@@ -82,7 +85,7 @@ public:
         }
         setupScene();
     }
-
+    //prepare resources fonts and textures
     bool initializeResources() {
         bool success = true;
 
@@ -125,12 +128,14 @@ public:
     }
 
     void setupScene() {
+        //setup visuals
         setupWelcomeText(welcometothe, secondaryFont);
         setupStarJumpText(starjump, font);
         setupPlayButton(playText, playButton, font);
     }
 
     void draw() {
+        //update UI
         window.clear(sf::Color(138, 127, 141));
         cursorSprite.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));
 

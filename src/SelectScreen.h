@@ -14,10 +14,11 @@ private:
     sf::Color backgroundColor;
     sf::Texture cursorTexture;
     sf::Sprite cursorSprite;
-    int selectedAttribute = -1;  // -1 means none selected
+    int selectedAttribute = -1;  // -1 means none selected attribute
     std::string selectedAttributeString;
 
 public:
+    //flag to start playing, initialize as false
     bool shouldStartPlaying = false;
 
     SelectScreen(sf::RenderWindow& win) : window(win) {
@@ -26,7 +27,7 @@ public:
         }
         setupScene();
     }
-
+    //my cool resource initializer with catches - fonts and images/textures
     bool initializeResources() {
         bool success = true;
         if (!cursorTexture.loadFromFile("Images/luma3.png")) {
@@ -49,6 +50,7 @@ public:
     }
 
     void setupScene() {
+        // setup initial appearance of all elements.
         title.setFont(font);
         title.setString("Pick a Star Attribute");
         title.setCharacterSize(36);
@@ -58,6 +60,7 @@ public:
         title.setOrigin(textRect.width / 2, textRect.height / 2);
         title.setPosition(400, 100);
 
+        // Setup back button
         backButtonText.setFont(font);
         backButtonText.setString("< Back");
         backButtonText.setCharacterSize(24);
@@ -121,6 +124,7 @@ public:
         if (backButton.getGlobalBounds().contains(mousePos)) {
             shouldReturnToWelcome = true;
         }
+        // Handle user clicking on attribute options
 
         sf::Text* attributeOptions[5] = {&attributeOption1, &attributeOption2, &attributeOption3, &attributeOption4, &attributeOption5};
         const std::string attributes[5] = {"Distance", "Radial Velocity", "Luminosity", "Color Index", "Visual Magnitude"};
@@ -154,6 +158,7 @@ public:
     }
 
     void handleEvents() {
+        // handle window events and interactions
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) window.close();
@@ -169,6 +174,7 @@ public:
     }
 
     void draw() {
+        // Render UI elements to the window
         window.clear(backgroundColor);
         window.draw(title);
         window.draw(backButtonText);
